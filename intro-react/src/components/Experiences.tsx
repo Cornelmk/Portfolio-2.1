@@ -33,17 +33,21 @@ export default function Experiences() {
     { title: "Erfaring 1", description: "Lage en nettside for liten bedrift" },
     { title: "Erfaring 2", description: "Lage en kalkulator" },
     { title: "Erfaring 3", description: "Dette prosjektet" }
-  ];
+     ];
 
-  return (
-    <div>
-      <h2>Erfaringer</h2>
-      {experiences.map((exp, index) => (
-        <Experience key={index}>
-          <h3>{exp.title}</h3>
-          <p>{exp.description}</p>
+return (
+  <div>
+    <h2>Erfaringer</h2>
+    {experiences.length === 0 ? (
+      <p>Ingen erfaringer</p>
+    ) : (
+      experiences.map((experience, index) => (
+        <Experience key={index} >
+          <h3>{experience.title}</h3>
+          <p>{experience.description}</p>
         </Experience>
-      ))}
-    </div>
-  );
+      ))
+    )}
+  </div>
+);
 }

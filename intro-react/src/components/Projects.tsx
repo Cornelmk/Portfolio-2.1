@@ -19,31 +19,61 @@
   }
 */
 
-type ProjectProps = {
+/*type ProjectProps = {
   children: React.ReactNode;
 };
   
 function Project({ children }: ProjectProps) {
   return <div>{children}</div>;
-}
+}*/
 
-export default function Projects() {
-  const projects = [
-    { title: "Prosject 1", description: "Nettside" },
-    { title: "Prosject 2", description: "App" },
-    { title: "Prosject 3", description: "Spill" },
-    { title: "Prosject 4", description: "Nettside for NRK" }
-  ];
+type ProjectProps = {
+  projects: { title: string, category: string; }[];
+  removeProject: (index: number) => void;
+};
+
+function Projects({ projects, removeProject }: ProjectProps) {
+  const getProjectCountByCategory = () => {
+    return projects.reduce((acc: { [key: string]: number }, project) => {
+      const {category} = project;
+      if (acc[category]) {
+        acc[category] += 1;
+      } else {
+        acc[category] = 1;
+      }
+      return acc;
+    }, {});
+  };
+
+    const ProjectCountByCategory = getProjectCountByCategory();
 
   return (
     <div>
       <h2>Prosjekter</h2>
-      {projects.map((project, index) => (
-        <Project key={index}>
-          <h3>{project.title}</h3>
-          <p>{project.description}</p>
-        </Project>
-      ))}
+      {projects.length === 0 ? (
+        <p>Ingen prosjekter</p>
+      ) : (
+        <>
+        <ul>
+          {projects.map((project, index) => (
+            <li key={index}>
+              {project.title}
+              <button onClick={() => removeProject(index)}>Fjern</button>
+            </li>
+          ))}
+          <h3>Totalt per kategori:</h3>
+          <ul>
+            {Object.entries(ProjectCountByCategory).map(([category, count], index) => (
+              <li key={index}>
+                {category}: {count} prosjekter
+              </li>
+            ))}
+          </ul>
+        </ul>
+        </>
+      )}
     </div>
   );
 }
+
+export default Projects;
