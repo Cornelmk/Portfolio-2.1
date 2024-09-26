@@ -28,14 +28,14 @@ function Project({ children }: ProjectProps) {
 }*/
 
 type ProjectProps = {
-  projects: { title: string, category: string; }[];
+  projects: { id: number, title: string, description: string, createdAt: string, category: string }[];
   removeProject: (index: number) => void;
 };
 
 function Projects({ projects, removeProject }: ProjectProps) {
   const getProjectCountByCategory = () => {
     return projects.reduce((acc: { [key: string]: number }, project) => {
-      const {category} = project;
+      const { category } = project;
       if (acc[category]) {
         acc[category] += 1;
       } else {
@@ -45,7 +45,7 @@ function Projects({ projects, removeProject }: ProjectProps) {
     }, {});
   };
 
-    const ProjectCountByCategory = getProjectCountByCategory();
+  const projectCountByCategory = getProjectCountByCategory();
 
   return (
     <div>
@@ -54,22 +54,25 @@ function Projects({ projects, removeProject }: ProjectProps) {
         <p>Ingen prosjekter</p>
       ) : (
         <>
-        <ul>
-          {projects.map((project, index) => (
-            <li key={index}>
-              {project.title}
-              <button onClick={() => removeProject(index)}>Fjern</button>
-            </li>
-          ))}
+          <ul>
+            {projects.map((project, index) => (
+              <li key={project.id}>
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+                <p>Opprettet: {new Date(project.createdAt).toLocaleDateString()}</p>
+                <p>Kategori: {project.category}</p>
+                <button onClick={() => removeProject(index)}>Fjern</button>
+              </li>
+            ))}
+          </ul>
           <h3>Totalt per kategori:</h3>
           <ul>
-            {Object.entries(ProjectCountByCategory).map(([category, count], index) => (
+            {Object.entries(projectCountByCategory).map(([category, count], index) => (
               <li key={index}>
                 {category}: {count} prosjekter
               </li>
             ))}
           </ul>
-        </ul>
         </>
       )}
     </div>
