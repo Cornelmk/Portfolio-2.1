@@ -36,7 +36,7 @@ export default function Experiences() {
      ];
 
 return (
-  <div>
+  <div className="card">
     <h2>Erfaringer</h2>
     {experiences.length === 0 ? (
       <p>Ingen erfaringer</p>

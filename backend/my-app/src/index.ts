@@ -13,12 +13,31 @@ app.use(
 )
 
 const projects = [
-  {id: 5, title: 'Prosjekt 5', description: "", createdAt: "", category: 'App'},
-  {id: 6, title: 'Prosjekt 6', description: "", createdAt: "", category: 'Nettside'},
-  {id: 7, title: 'Prosjekt 7', description: "", createdAt: "", category: 'Nettside'},
-  {id: 8, title: 'Prosjekt 8', description: "", createdAt: "",  category: 'Nettside'}
+  {
+    id: 5,
+    title: 'Prosjekt 5',
+    description: "App",
+    createdAt: "2024-01-01T12:00:00Z",
+    category: 'App',
+    publishedAt: "2024-02-01T12:00:00Z",
+    public: true,
+    status: 'published',
+    tags: ['React', 'Frontend']
+  },
+  {
+    id: 6,
+    title: 'Prosjekt 6',
+    description: "Nettside",
+    createdAt: "2024-01-05T12:00:00Z",
+    category: 'Nettside',
+    publishedAt: null,
+    public: false,
+    status: 'draft',
+    tags: ['HTML', 'CSS']
+  }
 ]
 
+// Endpoint to fetch projects
 app.get('/', (c) => {
   return c.json(projects)
 })

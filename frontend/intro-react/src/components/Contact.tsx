@@ -1,4 +1,4 @@
-type ContactProps = {
+/*type ContactProps = {
     email: string;
 }
 
@@ -14,4 +14,4 @@ export default function Contact(props: ContactProps) {
             <button onClick={handleClick}>Vis e-post</button>
         </div>
     )
-}
+}*/

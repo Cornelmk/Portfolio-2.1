@@ -1,0 +1,155 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #b3e6ff; /* Bakgrunnsfarge */
+    margin: 0;
+    padding: 20px;
+  }
+
+.card {
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+  
+.card h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+  
+.card p {
+    font-size: 16px;
+    margin: 10px 0;
+}
+  
+.card .email-button {
+    background-color: #000;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    display: inline-block;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+  
+.card .email-button:hover {
+    background-color: #333;
+}
+  
+
+.title {
+    text-align: center;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.contact-section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .contact-section h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .contact-section label {
+    font-size: 14px;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .contact-section input,
+  .contact-section textarea {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  .contact-section button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .contact-section button:hover {
+    background-color: #45a049;
+  }
+
+  .add-project-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  .add-project-button:hover {
+    background-color: #45a049;
+  }
+
+  .create-project-card {
+    background-color: white;
+    padding: 15px; 
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 500px;
+  }
+  
+  .create-project-card h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .create-project-card label {
+    font-size: 14px;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .create-project-card input {
+    width: 95%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  .create-project-card button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .create-project-card button:hover {
+    background-color: #45a049;
+  }
+
+  .create-project-card input[type="checkbox"] {
+    width: auto;
+    margin-right: 8px;
+  }

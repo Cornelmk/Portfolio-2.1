@@ -22,7 +22,7 @@ export default function ContactForm() {
     };
 
     return (
-        <div>
+        <div className="contact-section">
             <h2>Kontakt oss</h2>
             <form onSubmit={handleSubmit}>
         <div>
