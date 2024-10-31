@@ -1,3 +1,5 @@
+// Fikk problemer med å lage prosjekter og slikt når jeg skulle få til å opprette en database.
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const db = require('./database');
