@@ -5,7 +5,6 @@ type CreateProjectProps = {
   addProject: (project: {
     title: string;
     description: string;
-    createdAt: string;
     category: string;
     publishedAt: string | null;
     public: boolean;
@@ -18,7 +17,8 @@ function CreateProject({ addProject }: CreateProjectProps) {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
-  const [status, setStatus] = useState('draft'); // Default to 'draft'
+  const [publishedAt, setPublishedAt] = useState('');
+  const [status, setStatus] = useState('draft');
   const [publicStatus, setPublicStatus] = useState(false);
   const [tags, setTags] = useState<string[]>([]);
   const [tagInput, setTagInput] = useState('');
@@ -34,9 +34,8 @@ function CreateProject({ addProject }: CreateProjectProps) {
     const newProject = {
       title,
       description,
-      createdAt: format(new Date(), 'yyyy-MM-dd'), // Set created date to today
       category,
-      publishedAt: status === 'published' ? format(new Date(), 'yyyy-MM-dd') : null,
+      publishedAt: status === 'published' && publishedAt ? format(new Date(publishedAt), 'yyyy-MM-dd') : null,
       public: publicStatus,
       status,
       tags,
@@ -44,10 +43,10 @@ function CreateProject({ addProject }: CreateProjectProps) {
 
     addProject(newProject);
 
-    // Clear form fields
     setTitle('');
     setDescription('');
     setCategory('');
+    setPublishedAt('');
     setStatus('draft');
     setPublicStatus(false);
     setTags([]);
@@ -75,14 +74,6 @@ function CreateProject({ addProject }: CreateProjectProps) {
           />
         </div>
         <div>
-          <label htmlFor="projectDescription">Beskrivelse:</label>
-          <textarea
-            id="projectDescription"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-        </div>
-        <div>
           <label htmlFor="projectCategory">Kategori:</label>
           <input
             type="text"
@@ -92,12 +83,31 @@ function CreateProject({ addProject }: CreateProjectProps) {
           />
         </div>
         <div>
+          <label htmlFor="projectDescription">Beskrivelse:</label>
+          <textarea
+            id="projectDescription"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+        </div>
+        <div>
           <label>Status:</label>
           <select value={status} onChange={(e) => setStatus(e.target.value)}>
             <option value="draft">Utkast</option>
             <option value="published">Publisert</option>
           </select>
         </div>
+        {status === 'published' && (
+          <div>
+            <label htmlFor="publishedAt">Publisert dato:</label>
+            <input
+              type="date"
+              id="publishedAt"
+              value={publishedAt}
+              onChange={(e) => setPublishedAt(e.target.value)}
+            />
+          </div>
+        )}
         <div>
           <label>Offentlig:</label>
           <input
@@ -114,6 +124,7 @@ function CreateProject({ addProject }: CreateProjectProps) {
             onChange={(e) => setTagInput(e.target.value)}
             placeholder="Legg til en tag"
           />
+          <button type="button" onClick={handleAddTag}>Legg til tag</button>
           <p>{tags.join(', ')}</p>
         </div>
         <button className="add-project-button" type="submit">

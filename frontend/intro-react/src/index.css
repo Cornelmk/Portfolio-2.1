@@ -107,49 +107,96 @@ body {
     background-color: #45a049;
   }
 
-  .create-project-card {
-    background-color: white;
-    padding: 15px; 
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    height: 500px;
-  }
-  
-  .create-project-card h2 {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-  
-  .create-project-card label {
-    font-size: 14px;
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  .create-project-card input {
-    width: 95%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-  }
-  
-  .create-project-card button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 8px 16px;
-    border: none;
-    border-radius: 5px;
-    font-size: 14px;
-    cursor: pointer;
-  }
-  
-  .create-project-card button:hover {
-    background-color: #45a049;
-  }
+.create-project-card {
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-  .create-project-card input[type="checkbox"] {
-    width: auto;
-    margin-right: 8px;
-  }
+.create-project-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+  text-align: center;
+}
+
+.create-project-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.create-project-card label {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.create-project-card input[type="text"],
+.create-project-card input[type="date"],
+.create-project-card input[type="checkbox"],
+.create-project-card textarea,
+.create-project-card select {
+  width: 95%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #333;
+}
+
+.create-project-card textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.create-project-card input[type="checkbox"] {
+  width: auto;
+  margin-right: 0.5rem;
+}
+
+.create-project-card .tag-input {
+  display: flex;
+  align-items: center;
+}
+
+.create-project-card .tag-input input[type="text"] {
+  flex: 1;
+  margin-right: 0.5rem;
+}
+
+.create-project-card .add-project-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 0.8rem;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.create-project-card .add-project-button:hover {
+  background-color: #0056b3;
+}
+
+.create-project-card p {
+  font-size: 10px;
+  color: #666;
+  margin-top: 0.5rem;
+}
+
+.create-project-card .tags-display {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.create-project-card .tags-display p {
+  display: inline;
+  margin-right: 0.5rem;
+  color: #007bff;
+}

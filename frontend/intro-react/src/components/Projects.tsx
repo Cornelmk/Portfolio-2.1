@@ -4,19 +4,17 @@ type ProjectProps = {
   projects: {
     id: number;
     title: string;
-    description: string;
-    createdAt: string;
     category: string;
+    description: string;
     publishedAt: string | null;
-    public: boolean;
     status: string;
+    public: boolean;
     tags: string[];
   }[];
   removeProject: (index: number) => void;
 };
 
 function Projects({ projects, removeProject }: ProjectProps) {
-  // Funksjon for å telle prosjekter per kategori
   const getProjectCountByCategory = () => {
     return projects.reduce((acc: { [key: string]: number }, project) => {
       const { category } = project;
@@ -43,19 +41,11 @@ function Projects({ projects, removeProject }: ProjectProps) {
               {projects.map((project, index) => (
                 <li key={project.id}>
                   <h3>{project.title}</h3>
-                  <p>{project.description}</p>
-                  <p>
-                    Opprettet: {format(new Date(project.createdAt), 'dd.MM.yyyy')}
-                  </p>
                   <p>Kategori: {project.category}</p>
+                  <p>{project.description}</p>
                   <p>Status: {project.status}</p>
+                  <p>Publisert: {project.publishedAt}</p>
                   <p>Public: {project.public ? 'Yes' : 'No'}</p>
-                  <p>
-                    Publisert:{' '}
-                    {project.publishedAt
-                      ? format(new Date(project.publishedAt), 'dd.MM.yyyy')
-                      : 'Ikke publisert'}
-                  </p>
                   <p>Tags: {project.tags.join(', ')}</p>
                   <button onClick={() => removeProject(index)}>Fjern</button>
                 </li>
